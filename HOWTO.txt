@@ -4,6 +4,7 @@ sudo apt-get install apache2-prefork-dev
 mkdir ~/mod_example && cd ~/mod_example
 wget -O mod_example.c “http://svn.apache.org/viewvc/httpd/httpd/tags/2.2.14/modules/experimental/mod_example.c?revision=818301&view=co ( adjust as necessary for your version of httpd )
 sudo apxs2 -c -i mod_example.c ( this builds and installs the module. )
+apxs -i -a -c mod_example.c
 sudo su
 echo “LoadModule example_module /usr/lib/apache2/modules/mod_example.so” > /etc/apache2/mods-available/example.load
 vi /etc/apache2/mods-available/example.conf Paste the following:

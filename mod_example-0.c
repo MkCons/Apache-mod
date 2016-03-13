@@ -69,18 +69,5 @@ static int example_handler(request_rec* r) {
 	ap_set_content_type(r, "text/html");
 	ap_rprintf(r, "Hello, world!");
 
-	ap_rprintf(r, "<h2>Hello, %s!<h2>", r->useragent_ip);
-
-	if(!strcmp(r->method, "POST") || !strcmp(r->method, "GET")) {
-		ap_rputs("You used a GET or a POST method :)<br/>", r);
-	}
-	else {
-		ap_rputs("You did not use a GET or a POST method :/ <br/>", r);	
-	}
-
-	if(r->args) {
-		ap_rprintf(r, "Query was: %s", r->args);
-	}
-
 	return OK;
 }
